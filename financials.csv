@@ -1,0 +1,31 @@
+Symbol,Name,Sector,Industry,Market Cap
+AAPL,Apple Inc.,Technology,Consumer Electronics,2.9T
+MSFT,Microsoft Corporation,Technology,Software,2.8T
+AMZN,Amazon.com Inc.,Consumer Discretionary,Internet Retail,1.8T
+NVDA,NVIDIA Corporation,Technology,Semiconductors,1.7T
+GOOGL,Alphabet Inc. Class A,Communication Services,Internet Content & Information,1.6T
+GOOG,Alphabet Inc. Class C,Communication Services,Internet Content & Information,1.6T
+META,Meta Platforms Inc.,Communication Services,Internet Content & Information,1.2T
+TSLA,Tesla Inc.,Consumer Discretionary,Auto Manufacturers,800B
+BRK.B,Berkshire Hathaway Inc. Class B,Financials,Insurance,785B
+UNH,UnitedHealth Group Inc.,Healthcare,Healthcare Plans,500B
+JPM,JPMorgan Chase & Co.,Financials,Banks,490B
+JNJ,Johnson & Johnson,Healthcare,Drug Manufacturers,450B
+V,Visa Inc.,Financials,Credit Services,440B
+PG,Procter & Gamble Co.,Consumer Staples,Household & Personal Products,350B
+MA,Mastercard Inc.,Financials,Credit Services,345B
+HD,Home Depot Inc.,Consumer Discretionary,Home Improvement Retail,340B
+AVGO,Broadcom Inc.,Technology,Semiconductors,330B
+XOM,Exxon Mobil Corporation,Energy,Oil & Gas,330B
+CVX,Chevron Corporation,Energy,Oil & Gas,320B
+ABBV,AbbVie Inc.,Healthcare,Drug Manufacturers,290B
+PFE,Pfizer Inc.,Healthcare,Drug Manufacturers,220B
+BAC,Bank of America Corp.,Financials,Banks,280B
+COST,Costco Wholesale Corporation,Consumer Staples,Discount Stores,270B
+CSCO,Cisco Systems Inc.,Technology,Communication Equipment,240B
+ADBE,Adobe Inc.,Technology,Software,235B
+WMT,Walmart Inc.,Consumer Staples,Discount Stores,390B
+CRM,Salesforce Inc.,Technology,Software,220B
+TMO,Thermo Fisher Scientific Inc.,Healthcare,Diagnostics & Research,215B
+CMCSA,Comcast Corporation,Communication Services,Entertainment,195B
+MRK,Merck & Co. Inc.,Healthcare,Drug Manufacturers,270B

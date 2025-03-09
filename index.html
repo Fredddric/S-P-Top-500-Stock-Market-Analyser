@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Market Analysis & Forecasting</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>S&P 500 Stock Market Analysis & Forecasting</h1>
+      <p>Deep Learning-based Stock Market Analysis and Prediction System</p>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#" class="active" data-section="dashboard">Dashboard</a></li>
+        <li><a href="#" data-section="stock-analysis">Stock Analysis</a></li>
+        <li><a href="#" data-section="sector-analysis">Sector Analysis</a></li>
+        <li><a href="#" data-section="prediction">Price Prediction</a></li>
+        <li><a href="#" data-section="portfolio">Portfolio Optimizer</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- Dashboard Section -->
+      <section id="dashboard" class="active">
+        <h2>Market Overview</h2>
+        <div class="dashboard-grid">
+          <div class="card">
+            <h3>Market Summary</h3>
+            <div id="market-summary">
+              <p>Loading market data...</p>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Top Performers</h3>
+            <div id="top-performers">
+              <p>Loading top performers...</p>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Sector Performance</h3>
+            <div class="chart-container">
+              <canvas id="sector-performance-chart"></canvas>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Market Cap Distribution</h3>
+            <div class="chart-container">
+              <canvas id="market-cap-chart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stock Analysis Section -->
+      <section id="stock-analysis">
+        <h2>Stock Analysis</h2>
+        <div class="stock-search">
+          <input type="text" id="stock-search" placeholder="Search for a stock (e.g., AAPL, MSFT)">
+          <button id="search-btn">Search</button>
+        </div>
+        <div id="stock-details" class="hidden">
+          <div class="stock-header">
+            <h3 id="stock-name"></h3>
+            <p id="stock-sector"></p>
+          </div>
+          <div class="stock-grid">
+            <div class="card">
+              <h4>Price Information</h4>
+              <div id="price-info"></div>
+            </div>
+            <div class="card">
+              <h4>Financial Ratios</h4>
+              <div id="financial-ratios"></div>
+            </div>
+            <div class="card">
+              <h4>Historical Performance</h4>
+              <div class="chart-container">
+                <canvas id="stock-history-chart"></canvas>
+              </div>
+            </div>
+            <div class="card">
+              <h4>Comparative Analysis</h4>
+              <div class="chart-container">
+                <canvas id="comparative-chart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sector Analysis Section -->
+      <section id="sector-analysis">
+        <h2>Sector Analysis</h2>
+        <div class="sector-selector">
+          <label for="sector-select">Select Sector:</label>
+          <select id="sector-select">
+            <option value="">Loading sectors...</option>
+          </select>
+        </div>
+        <div id="sector-details">
+          <div class="sector-grid">
+            <div class="card">
+              <h4>Sector Overview</h4>
+              <div id="sector-overview"></div>
+            </div>
+            <div class="card">
+              <h4>Top Companies by Market Cap</h4>
+              <div id="sector-top-companies"></div>
+            </div>
+            <div class="card">
+              <h4>Sector Metrics</h4>
+              <div class="chart-container">
+                <canvas id="sector-metrics-chart"></canvas>
+              </div>
+            </div>
+            <div class="card">
+              <h4>Sector vs S&P 500</h4>
+              <div class="chart-container">
+                <canvas id="sector-comparison-chart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Prediction Section -->
+      <section id="prediction">
+        <h2>Stock Price Prediction</h2>
+        <div class="prediction-controls">
+          <div class="stock-selector">
+            <label for="prediction-stock">Select Stock:</label>
+            <input type="text" id="prediction-stock" placeholder="Enter stock symbol (e.g., AAPL)">
+          </div>
+          <div class="time-selector">
+            <label for="prediction-days">Prediction Timeframe:</label>
+            <select id="prediction-days">
+              <option value="7">7 Days</option>
+              <option value="14">14 Days</option>
+              <option value="30" selected>30 Days</option>
+              <option value="90">90 Days</option>
+            </select>
+          </div>
+          <button id="predict-btn">Generate Prediction</button>
+        </div>
+        <div id="prediction-results" class="hidden">
+          <div class="prediction-grid">
+            <div class="card">
+              <h4>Price Prediction</h4>
+              <div class="chart-container">
+                <canvas id="prediction-chart"></canvas>
+              </div>
+            </div>
+            <div class="card">
+              <h4>Prediction Metrics</h4>
+              <div id="prediction-metrics"></div>
+            </div>
+            <div class="card">
+              <h4>Model Confidence</h4>
+              <div class="chart-container">
+                <canvas id="confidence-chart"></canvas>
+              </div>
+            </div>
+            <div class="card">
+              <h4>Technical Indicators</h4>
+              <div id="technical-indicators"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolio Optimizer Section -->
+      <section id="portfolio">
+        <h2>Portfolio Optimizer</h2>
+        <div class="portfolio-builder">
+          <div class="portfolio-controls">
+            <div class="stock-selector">
+              <label for="portfolio-stock">Add Stock:</label>
+              <input type="text" id="portfolio-stock" placeholder="Enter stock symbol">
+              <button id="add-stock-btn">Add</button>
+            </div>
+            <div class="risk-selector">
+              <label for="risk-level">Risk Tolerance:</label>
+              <select id="risk-level">
+                <option value="low">Low Risk</option>
+                <option value="medium" selected>Medium Risk</option>
+                <option value="high">High Risk</option>
+              </select>
+            </div>
+            <button id="optimize-btn">Optimize Portfolio</button>
+          </div>
+          <div class="portfolio-stocks">
+            <h4>Selected Stocks</h4>
+            <ul id="selected-stocks"></ul>
+          </div>
+        </div>
+        <div id="optimization-results" class="hidden">
+          <div class="optimization-grid">
+            <div class="card">
+              <h4>Optimal Allocation</h4>
+              <div class="chart-container">
+                <canvas id="allocation-chart"></canvas>
+              </div>
+            </div>
+            <div class="card">
+              <h4>Expected Performance</h4>
+              <div class="chart-container">
+                <canvas id="performance-chart"></canvas>
+              </div>
+            </div>
+            <div class="card">
+              <h4>Risk Analysis</h4>
+              <div id="risk-analysis"></div>
+            </div>
+            <div class="card">
+              <h4>Portfolio Metrics</h4>
+              <div id="portfolio-metrics"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Stock Market Analysis & Forecasting Program | Final Year Project</p>
+    </footer>
+  </div>
+
+  <script src="js/main.js" type="module"></script>
+</body>
+</html>
